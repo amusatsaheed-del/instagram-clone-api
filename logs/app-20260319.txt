@@ -1,0 +1,9 @@
+2026-03-19 19:07:17.091 +01:00 [ERR] ❌ Database migration failed: Cannot open server 'instagram-clone-server' requested by the login. Client with IP address '197.211.59.83' is not allowed to access the server.  To enable access, use the Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.
+2026-03-19 19:07:17.327 +01:00 [INF] 🚀 Application starting on "2026-03-19T18:07:17.3261948Z"
+2026-03-19 19:07:17.376 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-19 19:07:17.401 +01:00 [INF] Creating key {cf8f2fb6-e821-44ae-9224-e81ad275a19b} with creation date 2026-03-19 18:07:17Z, activation date 2026-03-19 18:07:17Z, and expiration date 2026-06-17 18:07:17Z.
+2026-03-19 19:07:17.436 +01:00 [INF] Writing data to file 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys\key-cf8f2fb6-e821-44ae-9224-e81ad275a19b.xml'.
+2026-03-19 19:07:17.882 +01:00 [INF] Now listening on: http://localhost:5000
+2026-03-19 19:07:17.884 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 19:07:17.886 +01:00 [INF] Hosting environment: Production
+2026-03-19 19:07:17.888 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api

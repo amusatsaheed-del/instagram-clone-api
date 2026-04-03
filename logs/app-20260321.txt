@@ -1,0 +1,29 @@
+2026-03-21 19:47:39.944 +01:00 [ERR] ❌ Database migration failed: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SNI_PN11, error: 52 - Unable to locate a Local Database Runtime installation. Verify that SQL Server Express is properly installed and that the Local Database Runtime feature is enabled.)
+2026-03-21 19:47:40.164 +01:00 [INF] 🚀 Application starting on "2026-03-21T18:47:40.1631575Z"
+2026-03-21 19:47:40.202 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-21 19:47:40.807 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-03-21 19:47:40.845 +01:00 [INF] Now listening on: http://localhost:5167
+2026-03-21 19:47:40.847 +01:00 [INF] Now listening on: https://localhost:7167
+2026-03-21 19:47:40.849 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-21 19:47:40.850 +01:00 [INF] Hosting environment: Development
+2026-03-21 19:47:40.851 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-03-21 20:25:52.878 +01:00 [INF] Application is shutting down...
+2026-03-21 20:26:25.450 +01:00 [ERR] ❌ Database migration failed: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SNI_PN11, error: 52 - Unable to locate a Local Database Runtime installation. Verify that SQL Server Express is properly installed and that the Local Database Runtime feature is enabled.)
+2026-03-21 20:26:25.638 +01:00 [INF] 🚀 Application starting on "2026-03-21T19:26:25.6378229Z"
+2026-03-21 20:26:25.666 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-21 20:26:26.129 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-03-21 20:26:26.166 +01:00 [INF] Now listening on: http://localhost:5167
+2026-03-21 20:26:26.170 +01:00 [INF] Now listening on: https://localhost:7167
+2026-03-21 20:26:26.171 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-21 20:26:26.173 +01:00 [INF] Hosting environment: Development
+2026-03-21 20:26:26.174 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-03-21 20:34:59.431 +01:00 [INF] Application is shutting down...
+2026-03-21 20:35:23.010 +01:00 [ERR] ❌ Database migration failed: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SNI_PN11, error: 52 - Unable to locate a Local Database Runtime installation. Verify that SQL Server Express is properly installed and that the Local Database Runtime feature is enabled.)
+2026-03-21 20:35:23.207 +01:00 [INF] 🚀 Application starting on "2026-03-21T19:35:23.2066414Z"
+2026-03-21 20:35:23.235 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-21 20:35:23.739 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-03-21 20:35:23.783 +01:00 [INF] Now listening on: http://localhost:5167
+2026-03-21 20:35:23.785 +01:00 [INF] Now listening on: https://localhost:7167
+2026-03-21 20:35:23.788 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-21 20:35:23.790 +01:00 [INF] Hosting environment: Development
+2026-03-21 20:35:23.792 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
