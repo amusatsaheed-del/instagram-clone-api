@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {}
+    "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {
+    "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
+        "projectUniqueName": "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
         "projectName": "InstagramClone.Api",
-        "projectPath": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
+        "projectPath": "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\obj\\",
+        "outputPath": "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
