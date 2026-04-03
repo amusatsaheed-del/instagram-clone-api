@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InstagramClone.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d03ba8da60dbf3aeb151bb7bcdccc6ddd930f9ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("InstagramClone.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InstagramClone.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
