@@ -31,36 +31,13 @@ public class PostsController : ControllerBase
 
             var posts = await _context.Posts
                 .AsNoTracking()
-                .Include(p => p.User)
                 .Where(p => p.IsActive)
                 .OrderByDescending(p => p.CreatedAt)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(p => new PostDto
-                {
-                    Id = p.Id,
-                    UserId = p.UserId,
-                    Title = p.Title,
-                    Caption = p.Caption,
-                    Location = p.Location,
-                    PeoplePresent = p.PeoplePresent,
-                    ImageUrl = p.ImageUrl,
-                    LikeCount = p.LikeCount,
-                    CommentCount = p.CommentCount,
-                    AverageRating = p.AverageRating,
-                    RatingCount = p.RatingCount,
-                    IsLikedByCurrentUser = currentUserId.HasValue && p.Likes.Any(l => l.UserId == currentUserId.Value),
-                    CreatedAt = p.CreatedAt,
-                    User = p.User != null ? new UserSummaryDto
-                    {
-                        Id = p.User.Id,
-                        Username = p.User.Username,
-                        AvatarUrl = p.User.AvatarUrl
-                    } : null
-                })
                 .ToListAsync();
 
-            return Ok(posts);
+            return Ok(await BuildPostDtosAsync(posts, currentUserId));
         }
         catch (Exception ex)
         {
@@ -82,7 +59,6 @@ public class PostsController : ControllerBase
             var currentUserId = GetCurrentUserId();
             var postsQuery = _context.Posts
                 .AsNoTracking()
-                .Include(p => p.User)
                 .Where(p => p.IsActive)
                 .AsQueryable();
 
@@ -110,31 +86,9 @@ public class PostsController : ControllerBase
                 .OrderByDescending(p => p.CreatedAt)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Select(p => new PostDto
-                {
-                    Id = p.Id,
-                    UserId = p.UserId,
-                    Title = p.Title,
-                    Caption = p.Caption,
-                    Location = p.Location,
-                    PeoplePresent = p.PeoplePresent,
-                    ImageUrl = p.ImageUrl,
-                    LikeCount = p.LikeCount,
-                    CommentCount = p.CommentCount,
-                    AverageRating = p.AverageRating,
-                    RatingCount = p.RatingCount,
-                    IsLikedByCurrentUser = currentUserId.HasValue && p.Likes.Any(l => l.UserId == currentUserId.Value),
-                    CreatedAt = p.CreatedAt,
-                    User = p.User != null ? new UserSummaryDto
-                    {
-                        Id = p.User.Id,
-                        Username = p.User.Username,
-                        AvatarUrl = p.User.AvatarUrl
-                    } : null
-                })
                 .ToListAsync();
 
-            return Ok(posts);
+            return Ok(await BuildPostDtosAsync(posts, currentUserId));
         }
         catch (Exception ex)
         {
@@ -228,11 +182,21 @@ public class PostsController : ControllerBase
         {
             var post = await _context.Posts
                 .AsNoTracking()
-                .Include(p => p.User)
                 .FirstOrDefaultAsync(p => p.Id == id && p.IsActive);
 
             if (post == null)
                 return NotFound();
+
+            var user = await _context.Users
+                .AsNoTracking()
+                .Where(u => u.Id == post.UserId)
+                .Select(u => new UserSummaryDto
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    AvatarUrl = u.AvatarUrl
+                })
+                .FirstOrDefaultAsync();
 
             return Ok(new PostDto
             {
@@ -248,12 +212,7 @@ public class PostsController : ControllerBase
                 AverageRating = post.AverageRating,
                 RatingCount = post.RatingCount,
                 CreatedAt = post.CreatedAt,
-                User = post.User != null ? new UserSummaryDto
-                {
-                    Id = post.User.Id,
-                    Username = post.User.Username,
-                    AvatarUrl = post.User.AvatarUrl
-                } : null
+                User = user
             });
         }
         catch (Exception ex)
@@ -270,26 +229,35 @@ public class PostsController : ControllerBase
         {
             var comments = await _context.Comments
                 .AsNoTracking()
-                .Include(c => c.User)
                 .Where(c => c.PostId == id && c.IsActive)
                 .OrderByDescending(c => c.CreatedAt)
-                .Select(c => new CommentDto
-                {
-                    Id = c.Id,
-                    PostId = c.PostId,
-                    UserId = c.UserId,
-                    Content = c.Content,
-                    CreatedAt = c.CreatedAt,
-                    User = c.User != null ? new UserSummaryDto
-                    {
-                        Id = c.User.Id,
-                        Username = c.User.Username,
-                        AvatarUrl = c.User.AvatarUrl
-                    } : null
-                })
                 .ToListAsync();
 
-            return Ok(comments);
+            var userIds = comments.Select(c => c.UserId).Distinct().ToList();
+            var users = userIds.Count == 0
+                ? new Dictionary<Guid, UserSummaryDto>()
+                : await _context.Users
+                    .AsNoTracking()
+                    .Where(u => userIds.Contains(u.Id))
+                    .Select(u => new UserSummaryDto
+                    {
+                        Id = u.Id,
+                        Username = u.Username,
+                        AvatarUrl = u.AvatarUrl
+                    })
+                    .ToDictionaryAsync(u => u.Id);
+
+            var commentDtos = comments.Select(comment => new CommentDto
+            {
+                Id = comment.Id,
+                PostId = comment.PostId,
+                UserId = comment.UserId,
+                Content = comment.Content,
+                CreatedAt = comment.CreatedAt,
+                User = users.GetValueOrDefault(comment.UserId)
+            }).ToList();
+
+            return Ok(commentDtos);
         }
         catch (Exception ex)
         {
@@ -391,6 +359,7 @@ public class PostsController : ControllerBase
             {
                 existingRating = new MediaRating
                 {
+                    Id = MediaRating.CreateDocumentId(userId.Value, id),
                     UserId = userId.Value,
                     PostId = id,
                     RatingValue = request.Rating,
@@ -476,5 +445,57 @@ public class PostsController : ControllerBase
     {
         var claim = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? User.FindFirstValue("sub");
         return Guid.TryParse(claim, out var parsedId) ? parsedId : null;
+    }
+
+    private async Task<List<PostDto>> BuildPostDtosAsync(List<Post> posts, Guid? currentUserId)
+    {
+        if (posts.Count == 0)
+        {
+            return new List<PostDto>();
+        }
+
+        var userIds = posts.Select(p => p.UserId).Distinct().ToList();
+        var postIds = posts.Select(p => p.Id).ToList();
+
+        var users = await _context.Users
+            .AsNoTracking()
+            .Where(u => userIds.Contains(u.Id))
+            .Select(u => new UserSummaryDto
+            {
+                Id = u.Id,
+                Username = u.Username,
+                AvatarUrl = u.AvatarUrl
+            })
+            .ToDictionaryAsync(u => u.Id);
+
+        var likedPostIds = new HashSet<Guid>();
+
+        if (currentUserId.HasValue)
+        {
+            likedPostIds = (await _context.Likes
+                    .AsNoTracking()
+                    .Where(l => l.UserId == currentUserId.Value && postIds.Contains(l.PostId))
+                    .Select(l => l.PostId)
+                    .ToListAsync())
+                .ToHashSet();
+        }
+
+        return posts.Select(post => new PostDto
+        {
+            Id = post.Id,
+            UserId = post.UserId,
+            Title = post.Title,
+            Caption = post.Caption,
+            Location = post.Location,
+            PeoplePresent = post.PeoplePresent,
+            ImageUrl = post.ImageUrl,
+            LikeCount = post.LikeCount,
+            CommentCount = post.CommentCount,
+            AverageRating = post.AverageRating,
+            RatingCount = post.RatingCount,
+            IsLikedByCurrentUser = likedPostIds.Contains(post.Id),
+            CreatedAt = post.CreatedAt,
+            User = users.GetValueOrDefault(post.UserId)
+        }).ToList();
     }
 }

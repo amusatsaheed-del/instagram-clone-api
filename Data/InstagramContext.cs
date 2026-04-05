@@ -18,27 +18,25 @@ public class InstagramContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // User configuration
+        ConfigureSharedModel(modelBuilder);
+        ConfigureCosmosModel(modelBuilder);
+    }
+
+    private static void ConfigureSharedModel(ModelBuilder modelBuilder)
+    {
         modelBuilder.Entity<User>(entity =>
         {
-            entity.ToTable("Users");
             entity.HasKey(u => u.Id);
             entity.Property(u => u.Email).HasMaxLength(255).IsRequired();
             entity.Property(u => u.Username).HasMaxLength(100).IsRequired();
             entity.Property(u => u.PasswordHash).IsRequired();
             entity.Property(u => u.Bio).HasMaxLength(500);
             entity.Property(u => u.AvatarUrl).HasMaxLength(500);
-            entity.Property(u => u.Role).HasMaxLength(50).IsRequired().HasDefaultValue("Consumer");
-
-            entity.HasIndex(u => u.Email).IsUnique();
-            entity.HasIndex(u => u.Username).IsUnique();
-            entity.HasIndex(u => u.Role);
+            entity.Property(u => u.Role).HasMaxLength(50).IsRequired();
         });
 
-        // Post configuration
         modelBuilder.Entity<Post>(entity =>
         {
-            entity.ToTable("Posts");
             entity.HasKey(p => p.Id);
             entity.Property(p => p.Title).HasMaxLength(120).IsRequired();
             entity.Property(p => p.Caption).HasMaxLength(2200);
@@ -46,96 +44,75 @@ public class InstagramContext : DbContext
             entity.Property(p => p.PeoplePresent).HasMaxLength(500);
             entity.Property(p => p.ImageUrl).HasMaxLength(500).IsRequired();
             entity.Property(p => p.BlobPath).HasMaxLength(500).IsRequired();
-            entity.Property(p => p.AverageRating).HasPrecision(5, 2);
-
-            entity.HasOne(p => p.User)
-                .WithMany(u => u.Posts)
-                .HasForeignKey(p => p.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasIndex(p => p.UserId);
-            entity.HasIndex(p => new { p.IsActive, p.CreatedAt }).IsDescending(false, true);
-            entity.HasIndex(p => p.Title);
-            entity.HasIndex(p => p.Location);
         });
 
-        // Comment configuration
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.ToTable("Comments");
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Content).HasMaxLength(500).IsRequired();
+        });
+    }
 
-            entity.HasOne(c => c.Post)
-                .WithMany(p => p.Comments)
-                .HasForeignKey(c => c.PostId)
-                .OnDelete(DeleteBehavior.Cascade);
+    private static void ConfigureCosmosModel(ModelBuilder modelBuilder)
+    {
+        modelBuilder.HasManualThroughput(400);
 
-            entity.HasOne(c => c.User)
-                .WithMany(u => u.Comments)
-                .HasForeignKey(c => c.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasIndex(c => c.PostId);
-            entity.HasIndex(c => c.UserId);
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.ToContainer("Users");
+            entity.HasPartitionKey(u => u.Id);
+            entity.Ignore(u => u.Posts);
+            entity.Ignore(u => u.Comments);
+            entity.Ignore(u => u.Likes);
+            entity.Ignore(u => u.Ratings);
+            entity.Ignore(u => u.Followers);
+            entity.Ignore(u => u.Following);
         });
 
-        // Like configuration (composite key)
+        modelBuilder.Entity<Post>(entity =>
+        {
+            entity.ToContainer("Posts");
+            entity.HasPartitionKey(p => p.UserId);
+            entity.Ignore(p => p.User);
+            entity.Ignore(p => p.Comments);
+            entity.Ignore(p => p.Likes);
+            entity.Ignore(p => p.Ratings);
+        });
+
+        modelBuilder.Entity<Comment>(entity =>
+        {
+            entity.ToContainer("Comments");
+            entity.HasPartitionKey(c => c.PostId);
+            entity.Ignore(c => c.Post);
+            entity.Ignore(c => c.User);
+        });
+
         modelBuilder.Entity<Like>(entity =>
         {
-            entity.ToTable("Likes");
-            entity.HasKey(l => new { l.UserId, l.PostId });
-
-            entity.HasOne(l => l.User)
-                .WithMany(u => u.Likes)
-                .HasForeignKey(l => l.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasOne(l => l.Post)
-                .WithMany(p => p.Likes)
-                .HasForeignKey(l => l.PostId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasIndex(l => l.PostId);
+            entity.ToContainer("Likes");
+            entity.HasKey(l => l.Id);
+            entity.HasPartitionKey(l => l.PostId);
+            entity.Ignore(l => l.User);
+            entity.Ignore(l => l.Post);
         });
 
-        // MediaRating configuration (composite key)
         modelBuilder.Entity<MediaRating>(entity =>
         {
-            entity.ToTable("MediaRatings");
-            entity.HasKey(r => new { r.UserId, r.PostId });
+            entity.ToContainer("MediaRatings");
+            entity.HasKey(r => r.Id);
+            entity.HasPartitionKey(r => r.PostId);
             entity.Property(r => r.RatingValue).IsRequired();
-
-            entity.HasOne(r => r.User)
-                .WithMany(u => u.Ratings)
-                .HasForeignKey(r => r.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasOne(r => r.Post)
-                .WithMany(p => p.Ratings)
-                .HasForeignKey(r => r.PostId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasIndex(r => r.PostId);
+            entity.Ignore(r => r.User);
+            entity.Ignore(r => r.Post);
         });
 
-        // Follower configuration (composite key)
         modelBuilder.Entity<Follower>(entity =>
         {
-            entity.ToTable("Followers");
-            entity.HasKey(f => new { f.FollowerId, f.FolloweeId });
-
-            entity.HasOne(f => f.FollowerUser)
-                .WithMany(u => u.Followers)
-                .HasForeignKey(f => f.FollowerId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasOne(f => f.FolloweeUser)
-                .WithMany(u => u.Following)
-                .HasForeignKey(f => f.FolloweeId)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            entity.HasIndex(f => f.FolloweeId);
+            entity.ToContainer("Followers");
+            entity.HasKey(f => f.Id);
+            entity.HasPartitionKey(f => f.FolloweeId);
+            entity.Ignore(f => f.FollowerUser);
+            entity.Ignore(f => f.FolloweeUser);
         });
     }
 }

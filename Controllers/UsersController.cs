@@ -52,19 +52,29 @@ public class UsersController : ControllerBase
     [HttpGet("{id}/followers")]
     public async Task<ActionResult<List<UserDto>>> GetFollowers(Guid id)
     {
-        var followers = await _context.Followers
+        var followerIds = await _context.Followers
             .AsNoTracking()
             .Where(f => f.FolloweeId == id)
-            .Include(f => f.FollowerUser)
+            .Select(f => f.FollowerId)
+            .ToListAsync();
+
+        if (followerIds.Count == 0)
+        {
+            return Ok(new List<UserDto>());
+        }
+
+        var followers = await _context.Users
+            .AsNoTracking()
+            .Where(f => followerIds.Contains(f.Id) && f.IsActive)
             .Select(f => new UserDto
             {
-                Id = f.FollowerUser!.Id,
-                Email = f.FollowerUser.Email,
-                Username = f.FollowerUser.Username,
-                Bio = f.FollowerUser.Bio,
-                AvatarUrl = f.FollowerUser.AvatarUrl,
-                Role = f.FollowerUser.Role,
-                CreatedAt = f.FollowerUser.CreatedAt
+                Id = f.Id,
+                Email = f.Email,
+                Username = f.Username,
+                Bio = f.Bio,
+                AvatarUrl = f.AvatarUrl,
+                Role = f.Role,
+                CreatedAt = f.CreatedAt
             })
             .ToListAsync();
 

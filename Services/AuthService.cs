@@ -31,11 +31,22 @@ public class AuthService
                 ? "Creator"
                 : "Consumer";
 
+            var normalizedEmail = email.Trim();
+            var normalizedUsername = username.Trim();
+
             // Validation
-            if (await _db.Users.AnyAsync(u => u.Email == email))
+            var existingEmail = await _db.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Email == normalizedEmail);
+
+            if (existingEmail != null)
                 return new AuthResponse { Success = false, Message = "Email already exists" };
 
-            if (await _db.Users.AnyAsync(u => u.Username == username))
+            var existingUsername = await _db.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Username == normalizedUsername);
+
+            if (existingUsername != null)
                 return new AuthResponse { Success = false, Message = "Username already exists" };
 
             if (password.Length < 8)
@@ -48,8 +59,8 @@ public class AuthService
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                Email = email,
-                Username = username,
+                Email = normalizedEmail,
+                Username = normalizedUsername,
                 PasswordHash = hashedPassword,
                 Role = normalizedRole,
                 CreatedAt = DateTime.UtcNow,

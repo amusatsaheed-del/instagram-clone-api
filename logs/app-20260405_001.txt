@@ -1,0 +1,529 @@
+2026-04-05 13:26:46.844 +01:00 [ERR] Database initialization failed
+Microsoft.Azure.Cosmos.CosmosException : Response status code does not indicate success: BadRequest (400); Substatus: 1028; ActivityId: ebacd21a-be69-4914-b507-2afd3711e986; Reason: (Message: {"Errors":["Your account is currently configured with a total throughput limit of 1000 RU/s. This operation failed because it would have increased the total throughput to 1200 RU/s. See https://aka.ms/cosmos-tp-limit for more information."]}
+ActivityId: ebacd21a-be69-4914-b507-2afd3711e986, Request URI: /apps/ecde2077-ff00-4a0a-b3af-0f562fd7d8df/services/2829c970-2b3f-4b61-aa1f-0d763a9266cf/partitions/92b094e7-d175-4de8-9f5d-60ddaee8d922/replicas/134176620046785042p, RequestStats: , SDK: Microsoft.Azure.Documents.Common/2.14.0, Microsoft.Azure.Cosmos.Tracing.TraceData.ClientSideRequestStatisticsTraceDatum, Windows/10.0.26200 cosmos-netstandard-sdk/3.31.4);
+   at Microsoft.Azure.Cosmos.GatewayStoreClient.ParseResponseAsync(HttpResponseMessage responseMessage, JsonSerializerSettings serializerSettings, DocumentServiceRequest request)
+   at Microsoft.Azure.Cosmos.GatewayStoreClient.InvokeAsync(DocumentServiceRequest request, ResourceType resourceType, Uri physicalAddress, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.ProcessMessageAsync(RequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.SendAsync(RequestMessage request, CancellationToken cancellationToken)
+--- Cosmos Diagnostics ---{"Summary":{"GatewayCalls":{"(400, 1028)":1}},"name":"CreateContainerStreamAsync","start datetime":"2026-04-05T12:26:46.503Z","duration in milliseconds":333.7904,"data":{"Client Configuration":{"Client Created Time Utc":"2026-04-05T12:26:39.9233681Z","MachineId":"hashedMachineName:b000a711-06c8-476c-ecba-05ed37bc14dc","NumberOfClientsCreated":1,"NumberOfActiveClients":1,"ConnectionMode":"Direct","User Agent":"cosmos-netstandard-sdk/3.35.4|1|X64|Microsoft Windows 10.0.26200|.NET 8.0.25|N| Microsoft.EntityFrameworkCore.Cosmos/8.0.0","ConnectionConfig":{"gw":"(cps:50, urto:6, p:False, httpf: False)","rntbd":"(cto: 5, icto: -1, mrpc: 30, mcpe: 65535, erd: True, pr: ReuseUnicastPort)","other":"(ed:False, be:False)"},"ConsistencyConfig":"(consistency: NotSet, prgns:[], apprgn: )","ProcessorCount":12}},"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.RequestInvokerHandler","duration in milliseconds":333.6003,"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.DiagnosticsHandler","duration in milliseconds":333.5644,"data":{"System Info":{"systemHistory":[{"dateUtc":"2026-04-05T12:26:41.6290176Z","cpu":5.580,"memory":2339596.000,"threadInfo":{"isThreadStarving":"no info","availableThreads":32765,"minThreads":12,"maxThreads":32767},"numberOfOpenTcpConnection":0}]}},"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.RetryHandler","duration in milliseconds":333.538,"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.RouterHandler","duration in milliseconds":333.4778,"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.TransportHandler","duration in milliseconds":333.4698,"children":[{"name":"Microsoft.Azure.Cosmos.GatewayStoreModel Transport Request","duration in milliseconds":318.1753,"data":{"Client Side Request Stats":{"Id":"AggregatedClientSideRequestStatistics","ContactedReplicas":[],"RegionsContacted":[],"FailedReplicas":[],"AddressResolutionStatistics":[],"StoreResponseStatistics":[],"HttpResponseStats":[{"StartTimeUTC":"2026-04-05T12:26:46.5044496Z","DurationInMs":307.7185,"RequestUri":"https://ukokojanna-westus2.documents.azure.com/dbs/InstagramClone/colls","ResourceType":"Collection","HttpMethod":"POST","ActivityId":"ebacd21a-be69-4914-b507-2afd3711e986","StatusCode":"BadRequest","ReasonPhrase":"Bad Request"}]},"Point Operation Statistics":{"Id":"PointOperationStatistics","ActivityId":"ebacd21a-be69-4914-b507-2afd3711e986","ResponseTimeUtc":"2026-04-05T12:26:46.8369735Z","StatusCode":400,"SubStatusCode":1028,"RequestCharge":0,"RequestUri":"dbs/InstagramClone","ErrorMessage":"Microsoft.Azure.Documents.DocumentClientException: Message: {\"Errors\":[\"Your account is currently configured with a total throughput limit of 1000 RU/s. This operation failed because it would have increased the total throughput to 1200 RU/s. See https://aka.ms/cosmos-tp-limit for more information.\"]}\r\nActivityId: ebacd21a-be69-4914-b507-2afd3711e986, Request URI: /apps/ecde2077-ff00-4a0a-b3af-0f562fd7d8df/services/2829c970-2b3f-4b61-aa1f-0d763a9266cf/partitions/92b094e7-d175-4de8-9f5d-60ddaee8d922/replicas/134176620046785042p, RequestStats: , SDK: Microsoft.Azure.Documents.Common/2.14.0, Microsoft.Azure.Cosmos.Tracing.TraceData.ClientSideRequestStatisticsTraceDatum, Windows/10.0.26200 cosmos-netstandard-sdk/3.31.4\r\n   at Microsoft.Azure.Cosmos.GatewayStoreClient.ParseResponseAsync(HttpResponseMessage responseMessage, JsonSerializerSettings serializerSettings, DocumentServiceRequest request)\r\n   at Microsoft.Azure.Cosmos.GatewayStoreClient.InvokeAsync(DocumentServiceRequest request, ResourceType resourceType, Uri physicalAddress, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.ProcessMessageAsync(RequestMessage request, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.SendAsync(RequestMessage request, CancellationToken cancellationToken)","RequestSessionToken":null,"ResponseSessionToken":"0:-1#11","BELatencyInMs":"1.911"}}}]}]}]}]}]}]}
+2026-04-05 13:26:47.077 +01:00 [INF] Application starting on "2026-04-05T12:26:47.0763289Z" with database provider cosmos
+2026-04-05 13:26:47.110 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:26:47.582 +01:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5167: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-04-05 13:28:51.466 +01:00 [ERR] Database initialization failed
+Microsoft.Azure.Cosmos.CosmosException : Response status code does not indicate success: BadRequest (400); Substatus: 1028; ActivityId: 4e0b731f-390c-4bb7-9aa1-12807da9425f; Reason: (Message: {"Errors":["Your account is currently configured with a total throughput limit of 1000 RU/s. This operation failed because it would have increased the total throughput to 1200 RU/s. See https://aka.ms/cosmos-tp-limit for more information."]}
+ActivityId: 4e0b731f-390c-4bb7-9aa1-12807da9425f, Request URI: /apps/ecde2077-ff00-4a0a-b3af-0f562fd7d8df/services/2829c970-2b3f-4b61-aa1f-0d763a9266cf/partitions/92b094e7-d175-4de8-9f5d-60ddaee8d922/replicas/134176620046785042p, RequestStats: , SDK: Microsoft.Azure.Documents.Common/2.14.0, Microsoft.Azure.Cosmos.Tracing.TraceData.ClientSideRequestStatisticsTraceDatum, Windows/10.0.26200 cosmos-netstandard-sdk/3.31.4);
+   at Microsoft.Azure.Cosmos.GatewayStoreClient.ParseResponseAsync(HttpResponseMessage responseMessage, JsonSerializerSettings serializerSettings, DocumentServiceRequest request)
+   at Microsoft.Azure.Cosmos.GatewayStoreClient.InvokeAsync(DocumentServiceRequest request, ResourceType resourceType, Uri physicalAddress, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.ProcessMessageAsync(RequestMessage request, CancellationToken cancellationToken)
+   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.SendAsync(RequestMessage request, CancellationToken cancellationToken)
+--- Cosmos Diagnostics ---{"Summary":{"GatewayCalls":{"(400, 1028)":1}},"name":"CreateContainerStreamAsync","start datetime":"2026-04-05T12:28:51.024Z","duration in milliseconds":437.0877,"data":{"Client Configuration":{"Client Created Time Utc":"2026-04-05T12:28:43.5415851Z","MachineId":"hashedMachineName:b000a711-06c8-476c-ecba-05ed37bc14dc","NumberOfClientsCreated":1,"NumberOfActiveClients":1,"ConnectionMode":"Direct","User Agent":"cosmos-netstandard-sdk/3.35.4|1|X64|Microsoft Windows 10.0.26200|.NET 8.0.25|N| Microsoft.EntityFrameworkCore.Cosmos/8.0.0","ConnectionConfig":{"gw":"(cps:50, urto:6, p:False, httpf: False)","rntbd":"(cto: 5, icto: -1, mrpc: 30, mcpe: 65535, erd: True, pr: ReuseUnicastPort)","other":"(ed:False, be:False)"},"ConsistencyConfig":"(consistency: NotSet, prgns:[], apprgn: )","ProcessorCount":12}},"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.RequestInvokerHandler","duration in milliseconds":436.9157,"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.DiagnosticsHandler","duration in milliseconds":436.8843,"data":{"System Info":{"systemHistory":[{"dateUtc":"2026-04-05T12:28:44.9323430Z","cpu":5.594,"memory":2461132.000,"threadInfo":{"isThreadStarving":"no info","availableThreads":32765,"minThreads":12,"maxThreads":32767},"numberOfOpenTcpConnection":0}]}},"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.RetryHandler","duration in milliseconds":436.8658,"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.RouterHandler","duration in milliseconds":436.8157,"children":[{"name":"Microsoft.Azure.Cosmos.Handlers.TransportHandler","duration in milliseconds":436.81,"children":[{"name":"Microsoft.Azure.Cosmos.GatewayStoreModel Transport Request","duration in milliseconds":421.5953,"data":{"Client Side Request Stats":{"Id":"AggregatedClientSideRequestStatistics","ContactedReplicas":[],"RegionsContacted":[],"FailedReplicas":[],"AddressResolutionStatistics":[],"StoreResponseStatistics":[],"HttpResponseStats":[{"StartTimeUTC":"2026-04-05T12:28:51.0245208Z","DurationInMs":408.087,"RequestUri":"https://ukokojanna-westus2.documents.azure.com/dbs/InstagramClone/colls","ResourceType":"Collection","HttpMethod":"POST","ActivityId":"4e0b731f-390c-4bb7-9aa1-12807da9425f","StatusCode":"BadRequest","ReasonPhrase":"Bad Request"}]},"Point Operation Statistics":{"Id":"PointOperationStatistics","ActivityId":"4e0b731f-390c-4bb7-9aa1-12807da9425f","ResponseTimeUtc":"2026-04-05T12:28:51.4604828Z","StatusCode":400,"SubStatusCode":1028,"RequestCharge":0,"RequestUri":"dbs/InstagramClone","ErrorMessage":"Microsoft.Azure.Documents.DocumentClientException: Message: {\"Errors\":[\"Your account is currently configured with a total throughput limit of 1000 RU/s. This operation failed because it would have increased the total throughput to 1200 RU/s. See https://aka.ms/cosmos-tp-limit for more information.\"]}\r\nActivityId: 4e0b731f-390c-4bb7-9aa1-12807da9425f, Request URI: /apps/ecde2077-ff00-4a0a-b3af-0f562fd7d8df/services/2829c970-2b3f-4b61-aa1f-0d763a9266cf/partitions/92b094e7-d175-4de8-9f5d-60ddaee8d922/replicas/134176620046785042p, RequestStats: , SDK: Microsoft.Azure.Documents.Common/2.14.0, Microsoft.Azure.Cosmos.Tracing.TraceData.ClientSideRequestStatisticsTraceDatum, Windows/10.0.26200 cosmos-netstandard-sdk/3.31.4\r\n   at Microsoft.Azure.Cosmos.GatewayStoreClient.ParseResponseAsync(HttpResponseMessage responseMessage, JsonSerializerSettings serializerSettings, DocumentServiceRequest request)\r\n   at Microsoft.Azure.Cosmos.GatewayStoreClient.InvokeAsync(DocumentServiceRequest request, ResourceType resourceType, Uri physicalAddress, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.GatewayStoreModel.ProcessMessageAsync(DocumentServiceRequest request, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.ProcessMessageAsync(RequestMessage request, CancellationToken cancellationToken)\r\n   at Microsoft.Azure.Cosmos.Handlers.TransportHandler.SendAsync(RequestMessage request, CancellationToken cancellationToken)","RequestSessionToken":null,"ResponseSessionToken":"0:-1#11","BELatencyInMs":"1.852"}}}]}]}]}]}]}]}
+2026-04-05 13:28:51.699 +01:00 [INF] Application starting on "2026-04-05T12:28:51.6978108Z" with database provider cosmos
+2026-04-05 13:28:51.736 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:28:52.194 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-04-05 13:28:52.228 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 13:28:52.231 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 13:28:52.233 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 13:28:52.235 +01:00 [INF] Hosting environment: Development
+2026-04-05 13:28:52.237 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 13:32:59.861 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 13:33:00.062 +01:00 [INF] Application starting on "2026-04-05T12:33:00.0619028Z" with database provider cosmos
+2026-04-05 13:33:00.100 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:33:00.621 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-04-05 13:33:00.654 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 13:33:00.656 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 13:33:00.659 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 13:33:00.661 +01:00 [INF] Hosting environment: Development
+2026-04-05 13:33:00.663 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 13:46:16.927 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 13:46:17.099 +01:00 [INF] Application starting on "2026-04-05T12:46:17.0991216Z" with database provider cosmos
+2026-04-05 13:46:17.128 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:46:17.547 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-04-05 13:46:17.574 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 13:46:17.576 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 13:46:17.582 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 13:46:17.583 +01:00 [INF] Hosting environment: Development
+2026-04-05 13:46:17.585 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 13:51:59.874 +01:00 [INF] Application is shutting down...
+2026-04-05 13:52:36.868 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 13:52:37.094 +01:00 [INF] Application starting on "2026-04-05T12:52:37.0936445Z" with database provider cosmos
+2026-04-05 13:52:37.130 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:52:37.706 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-04-05 13:52:37.749 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 13:52:37.752 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 13:52:37.756 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 13:52:37.758 +01:00 [INF] Hosting environment: Development
+2026-04-05 13:52:37.762 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 13:56:26.485 +01:00 [INF] Application is shutting down...
+2026-04-05 13:56:43.141 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 13:56:43.291 +01:00 [INF] Application starting on "2026-04-05T12:56:43.2908188Z" with database provider cosmos
+2026-04-05 13:56:43.319 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:56:43.777 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-04-05 13:56:43.809 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 13:56:43.811 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 13:56:43.813 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 13:56:43.815 +01:00 [INF] Hosting environment: Development
+2026-04-05 13:56:43.817 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 13:56:46.894 +01:00 [INF] Application is shutting down...
+2026-04-05 13:57:10.690 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 13:57:10.831 +01:00 [INF] Application starting on "2026-04-05T12:57:10.8314506Z" with database provider cosmos
+2026-04-05 13:57:10.859 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 13:57:11.287 +01:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2026-04-05 13:57:11.313 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 13:57:11.315 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 13:57:11.317 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 13:57:11.319 +01:00 [INF] Hosting environment: Development
+2026-04-05 13:57:11.320 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 14:18:07.197 +01:00 [INF] Application is shutting down...
+2026-04-05 14:19:07.447 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 14:19:07.602 +01:00 [INF] Application starting on "2026-04-05T13:19:07.6023947Z" with database provider cosmos
+2026-04-05 14:19:07.629 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 14:19:08.098 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 14:19:08.098 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 14:19:08.099 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 14:19:08.099 +01:00 [INF] Hosting environment: Development
+2026-04-05 14:19:08.099 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 14:19:09.767 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger - null null
+2026-04-05 14:19:09.862 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger - 301 null null 100.0314ms
+2026-04-05 14:19:09.937 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/index.html - null null
+2026-04-05 14:19:10.093 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/index.html - 200 null text/html;charset=utf-8 155.5728ms
+2026-04-05 14:19:10.148 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/swagger-ui.css - null null
+2026-04-05 14:19:10.149 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/swagger-ui-bundle.js - null null
+2026-04-05 14:19:10.150 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/swagger-ui-standalone-preset.js - null null
+2026-04-05 14:19:10.150 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-05 14:19:10.153 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/_framework/aspnetcore-browser-refresh.js - 200 14901 application/javascript; charset=utf-8 3.0434ms
+2026-04-05 14:19:10.180 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-04-05 14:19:10.180 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-04-05 14:19:10.184 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/swagger-ui-standalone-preset.js - 200 312163 text/javascript 33.9123ms
+2026-04-05 14:19:10.184 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/swagger-ui.css - 200 144929 text/css 35.5385ms
+2026-04-05 14:19:10.187 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-04-05 14:19:10.188 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/swagger-ui-bundle.js - 200 1061536 text/javascript 38.4579ms
+2026-04-05 14:19:10.490 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/v1/swagger.json - null null
+2026-04-05 14:19:10.532 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/favicon-32x32.png - null null
+2026-04-05 14:19:10.534 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-04-05 14:19:10.534 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/favicon-32x32.png - 200 628 image/png 2.1547ms
+2026-04-05 14:19:10.715 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 224.8831ms
+2026-04-05 14:20:20.662 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/index.html - null null
+2026-04-05 14:20:20.665 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/index.html - 200 null text/html;charset=utf-8 3.1444ms
+2026-04-05 14:20:20.718 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-05 14:20:20.719 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/_framework/aspnetcore-browser-refresh.js - 200 14901 application/javascript; charset=utf-8 0.6853ms
+2026-04-05 14:20:20.957 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/swagger/v1/swagger.json - null null
+2026-04-05 14:20:20.981 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.0557ms
+2026-04-05 14:20:49.934 +01:00 [INF] Application is shutting down...
+2026-04-05 14:21:11.171 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 14:21:11.334 +01:00 [INF] Application starting on "2026-04-05T13:21:11.3336908Z" with database provider cosmos
+2026-04-05 14:21:11.364 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 14:21:11.861 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 14:21:11.865 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 14:21:11.869 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 14:21:11.870 +01:00 [INF] Hosting environment: Development
+2026-04-05 14:21:11.873 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 14:28:46.341 +01:00 [INF] Application is shutting down...
+2026-04-05 14:30:01.872 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 14:30:02.050 +01:00 [INF] Application starting on "2026-04-05T13:30:02.0501079Z" with database provider cosmos
+2026-04-05 14:30:02.085 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 14:30:02.630 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 14:30:02.634 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 14:30:02.638 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 14:30:02.641 +01:00 [INF] Hosting environment: Development
+2026-04-05 14:30:02.646 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 14:36:10.861 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 14:36:11.077 +01:00 [INF] Application starting on "2026-04-05T13:36:11.0766250Z" with database provider cosmos
+2026-04-05 14:36:11.113 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 14:36:11.720 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 14:36:11.724 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 14:36:11.728 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 14:36:11.731 +01:00 [INF] Hosting environment: Development
+2026-04-05 14:36:11.734 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 14:37:55.380 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - null null
+2026-04-05 14:37:55.446 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:37:55.456 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - 204 null null 79.3502ms
+2026-04-05 14:37:55.495 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/login - application/json; charset=utf-8 63
+2026-04-05 14:37:55.510 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:37:55.556 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-04-05 14:37:55.598 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InstagramClone.Api.DTOs.LoginRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-04-05 14:37:55.670 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:37:56.026 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__email_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-04-05 14:38:00.630 +01:00 [INF] Executed ReadNext (4568.6173 ms, 2.79 RU) ActivityId='30732ffd-0be3-41e3-bc34-bb6e16ec948c', Container='Users', Partition='?', Parameters=[@__email_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-04-05 14:38:00.655 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.UnauthorizedObjectResult in 4973.192ms.
+2026-04-05 14:38:00.670 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-04-05 14:38:00.734 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) in 5123.0866ms
+2026-04-05 14:38:00.741 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-04-05 14:38:00.758 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/login - 401 null application/json; charset=utf-8 5263.2891ms
+2026-04-05 14:38:29.101 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/register - null null
+2026-04-05 14:38:29.112 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:38:29.116 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/register - 204 null null 14.8287ms
+2026-04-05 14:38:29.129 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/register - application/json; charset=utf-8 96
+2026-04-05 14:38:29.139 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:38:29.145 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api)'
+2026-04-05 14:38:29.157 +01:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-04-05 14:38:29.173 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:38:29.251 +01:00 [ERR] Registration error: The LINQ expression 'DbSet<User>()
+    .Any(u => u.Email == __email_0)' could not be translated. Either rewrite the query in a form that can be translated, or switch to client evaluation explicitly by inserting a call to 'AsEnumerable', 'AsAsyncEnumerable', 'ToList', or 'ToListAsync'. See https://go.microsoft.com/fwlink/?linkid=2101038 for more information.
+2026-04-05 14:38:29.255 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 77.0474ms.
+2026-04-05 14:38:29.262 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-04-05 14:38:29.268 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api) in 103.343ms
+2026-04-05 14:38:29.273 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api)'
+2026-04-05 14:38:29.278 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/register - 400 null application/json; charset=utf-8 148.9493ms
+2026-04-05 14:42:34.005 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-04-05 14:42:34.172 +01:00 [INF] Application starting on "2026-04-05T13:42:34.1721584Z" with database provider cosmos
+2026-04-05 14:42:34.204 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-05 14:42:34.672 +01:00 [INF] Now listening on: http://localhost:5167
+2026-04-05 14:42:34.675 +01:00 [INF] Now listening on: https://localhost:7167
+2026-04-05 14:42:34.677 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-05 14:42:34.679 +01:00 [INF] Hosting environment: Development
+2026-04-05 14:42:34.682 +01:00 [INF] Content root path: C:\Users\USER\Desktop\Projects\Assignment\InstagramClone.Api
+2026-04-05 14:42:59.358 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/register - null null
+2026-04-05 14:42:59.441 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:42:59.452 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/register - 204 null null 99.3643ms
+2026-04-05 14:42:59.538 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/register - application/json; charset=utf-8 96
+2026-04-05 14:42:59.552 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:42:59.619 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api)'
+2026-04-05 14:42:59.663 +01:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-04-05 14:42:59.742 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:43:00.160 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:43:03.622 +01:00 [INF] Executed ReadNext (3424.3596 ms, 2.79 RU) ActivityId='1e063a35-4a73-453b-bf1f-8e4a569757e3', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:43:03.660 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedUsername_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:43:04.111 +01:00 [INF] Executed ReadNext (443.487 ms, 2.79 RU) ActivityId='b2c01d61-b2bb-49ed-8f2a-4510f81f8c8e', Container='Users', Partition='?', Parameters=[@__normalizedUsername_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:43:06.324 +01:00 [INF] Executed CreateItem (1557.5322 ms, 9.33 RU) ActivityId='27516530-81f6-41a5-8747-7f78092cac06', Container='Users', Id='?', Partition='?'
+2026-04-05 14:43:06.349 +01:00 [INF] User registered: pleasantyomi@gmail.com
+2026-04-05 14:43:06.385 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 6633.0833ms.
+2026-04-05 14:43:06.398 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-04-05 14:43:06.509 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api) in 6831.9029ms
+2026-04-05 14:43:06.515 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Register (InstagramClone.Api)'
+2026-04-05 14:43:06.528 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/register - 201 null application/json; charset=utf-8 6990.0215ms
+2026-04-05 14:43:07.250 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:43:07.261 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:43:07.265 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - 204 null null 14.537ms
+2026-04-05 14:43:07.278 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:43:07.291 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:43:07.386 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:43:07.400 +01:00 [INF] Route matched with {action = "GetFeed", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.PostDto]]] GetFeed(Int32, Int32) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:43:07.418 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:43:07.544 +01:00 [INF] Executing SQL query for container 'Posts' in partition '?' [Parameters=[@__p_0=?, @__p_1=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:43:10.685 +01:00 [INF] Executed ReadNext (3134.4596 ms, 2.79 RU) ActivityId='0499c1b4-8b5c-46e7-8ac3-0975a0d72660', Container='Posts', Partition='?', Parameters=[@__p_0=?, @__p_1=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:43:10.703 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3279.7186ms.
+2026-04-05 14:43:10.710 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.PostDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-05 14:43:10.734 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) in 3327.7266ms
+2026-04-05 14:43:10.740 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:43:10.745 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 200 null application/json; charset=utf-8 3466.9519ms
+2026-04-05 14:50:43.073 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 82
+2026-04-05 14:50:43.082 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-04-05 14:50:43.089 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-04-05 14:50:43.107 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:50:43.117 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:50:44.902 +01:00 [INF] Executed ReadNext (1780.8959 ms, 2.89 RU) ActivityId='e937d54f-0885-4c0d-8ed9-2bd42d237d7c', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:50:44.909 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedUsername_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:50:46.492 +01:00 [INF] Executed ReadNext (1578.1733 ms, 2.89 RU) ActivityId='285c5225-edc5-428e-800f-b15a6f2bf3ca', Container='Users', Partition='?', Parameters=[@__normalizedUsername_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-04-05 14:50:47.196 +01:00 [INF] Executed CreateItem (444.7652 ms, 9.33 RU) ActivityId='db430bb6-121c-4eac-b63d-45970dd3ce8f', Container='Users', Id='?', Partition='?'
+2026-04-05 14:50:47.202 +01:00 [INF] User registered: saheed@creator.com
+2026-04-05 14:50:47.205 +01:00 [INF] Internal creator account created for saheed@creator.com
+2026-04-05 14:50:47.207 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 4097.3001ms.
+2026-04-05 14:50:47.211 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-04-05 14:50:47.216 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 4122.4394ms
+2026-04-05 14:50:47.219 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-04-05 14:50:47.221 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 201 null application/json; charset=utf-8 4148.8292ms
+2026-04-05 14:51:45.649 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - null null
+2026-04-05 14:51:45.659 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:51:45.662 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - 204 null null 12.378ms
+2026-04-05 14:51:45.673 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/login - application/json; charset=utf-8 62
+2026-04-05 14:51:45.683 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:51:45.687 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-04-05 14:51:45.697 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InstagramClone.Api.DTOs.LoginRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-04-05 14:51:45.709 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:51:45.738 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__email_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-04-05 14:51:46.069 +01:00 [INF] Executed ReadNext (324.6999 ms, 3.02 RU) ActivityId='b89afc4f-db17-4103-836d-2bbbe69da41f', Container='Users', Partition='?', Parameters=[@__email_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-04-05 14:51:46.404 +01:00 [INF] User logged in: saheed@creator.com
+2026-04-05 14:51:46.408 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 693.1796ms.
+2026-04-05 14:51:46.414 +01:00 [INF] Executing OkObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-04-05 14:51:46.419 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) in 715.9247ms
+2026-04-05 14:51:46.424 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-04-05 14:51:46.428 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/login - 200 null application/json; charset=utf-8 754.2614ms
+2026-04-05 14:51:46.938 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:51:46.948 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:51:46.952 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - 204 null null 13.8397ms
+2026-04-05 14:51:46.964 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:51:46.973 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:51:46.982 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:51:46.986 +01:00 [INF] Route matched with {action = "GetFeed", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.PostDto]]] GetFeed(Int32, Int32) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:51:46.993 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:51:46.998 +01:00 [INF] Executing SQL query for container 'Posts' in partition '?' [Parameters=[@__p_0=?, @__p_1=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:51:49.744 +01:00 [INF] Executed ReadNext (2740.143 ms, 2.79 RU) ActivityId='685b3b28-23e7-4288-974e-c235ff6f3d8a', Container='Posts', Partition='?', Parameters=[@__p_0=?, @__p_1=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:51:49.754 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2757.6688ms.
+2026-04-05 14:51:49.760 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.PostDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-05 14:51:49.765 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) in 2772.5738ms
+2026-04-05 14:51:49.770 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:51:49.773 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 200 null application/json; charset=utf-8 2809.8191ms
+2026-04-05 14:53:09.064 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts - null null
+2026-04-05 14:53:09.074 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:09.077 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts - 204 null null 13.3458ms
+2026-04-05 14:53:09.090 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/posts - application/json; charset=utf-8 595150
+2026-04-05 14:53:09.099 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:09.109 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.CreatePost (InstagramClone.Api)'
+2026-04-05 14:53:09.117 +01:00 [INF] Route matched with {action = "CreatePost", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[InstagramClone.Api.DTOs.PostDto]] CreatePost(InstagramClone.Api.DTOs.CreatePostRequest) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:53:09.145 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.CreatePost (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:53:09.175 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND c["IsActive"])
+OFFSET 0 LIMIT 1
+2026-04-05 14:53:09.494 +01:00 [INF] Executed ReadNext (312.6288 ms, 3.02 RU) ActivityId='5bf626ff-bc3f-4762-a09f-2b52f1a40b18', Container='Users', Partition='?', Parameters=[]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND c["IsActive"])
+OFFSET 0 LIMIT 1
+2026-04-05 14:53:13.022 +01:00 [INF] Executed CreateItem (3427.5329 ms, 631.48 RU) ActivityId='9f69eb14-68d8-4526-a623-36b07fdae60e', Container='Posts', Id='?', Partition='?'
+2026-04-05 14:53:13.039 +01:00 [INF] Creator post created by user "98e643f1-37ec-470e-a960-1fa01c4d3c17"
+2026-04-05 14:53:13.047 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.CreatePost (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 3897.0997ms.
+2026-04-05 14:53:13.052 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'InstagramClone.Api.DTOs.PostDto'.
+2026-04-05 14:53:13.106 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.CreatePost (InstagramClone.Api) in 3982.1927ms
+2026-04-05 14:53:13.111 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.CreatePost (InstagramClone.Api)'
+2026-04-05 14:53:13.115 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/posts - 201 null application/json; charset=utf-8 4024.3796ms
+2026-04-05 14:53:14.387 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:53:14.396 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:14.400 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - 204 null null 13.0128ms
+2026-04-05 14:53:14.412 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:53:14.421 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:14.424 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:53:14.427 +01:00 [INF] Route matched with {action = "GetFeed", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.PostDto]]] GetFeed(Int32, Int32) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:53:14.434 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:53:14.440 +01:00 [INF] Executing SQL query for container 'Posts' in partition '?' [Parameters=[@__p_0=?, @__p_1=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:53:15.676 +01:00 [INF] Executed ReadNext (1230.0278 ms, 11.28 RU) ActivityId='null', Container='Posts', Partition='?', Parameters=[@__p_0=?, @__p_1=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:53:15.767 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[]]
+SELECT c["Id"], c["Username"], c["AvatarUrl"]
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND c["Id"] IN ("98e643f1-37ec-470e-a960-1fa01c4d3c17"))
+2026-04-05 14:53:16.104 +01:00 [INF] Executed ReadNext (330.9715 ms, 2.92 RU) ActivityId='d91295a0-286d-4367-b95b-a1a19d126018', Container='Users', Partition='?', Parameters=[]
+SELECT c["Id"], c["Username"], c["AvatarUrl"]
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND c["Id"] IN ("98e643f1-37ec-470e-a960-1fa01c4d3c17"))
+2026-04-05 14:53:16.130 +01:00 [INF] Executing SQL query for container 'Likes' in partition '?' [Parameters=[@__currentUserId_Value_0=?]]
+SELECT c["PostId"]
+FROM root c
+WHERE ((c["Discriminator"] = "Like") AND ((c["UserId"] = @__currentUserId_Value_0) AND c["PostId"] IN ("ce3de231-fb59-45bc-9f6a-12213639e6fd")))
+2026-04-05 14:53:20.337 +01:00 [INF] Executed ReadNext (4199.9518 ms, 2.79 RU) ActivityId='8806d7da-086e-416a-8b0a-5d657e401b74', Container='Likes', Partition='?', Parameters=[@__currentUserId_Value_0=?]
+SELECT c["PostId"]
+FROM root c
+WHERE ((c["Discriminator"] = "Like") AND ((c["UserId"] = @__currentUserId_Value_0) AND c["PostId"] IN ("ce3de231-fb59-45bc-9f6a-12213639e6fd")))
+2026-04-05 14:53:20.351 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 5912.9013ms.
+2026-04-05 14:53:20.357 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.PostDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-05 14:53:20.399 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) in 5965.5763ms
+2026-04-05 14:53:20.404 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:53:20.408 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 200 null application/json; charset=utf-8 5996.2149ms
+2026-04-05 14:53:21.471 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - null null
+2026-04-05 14:53:21.480 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:21.483 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - 204 null null 11.9916ms
+2026-04-05 14:53:21.493 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - null null
+2026-04-05 14:53:21.503 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:21.507 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api)'
+2026-04-05 14:53:21.517 +01:00 [INF] Route matched with {action = "GetComments", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.CommentDto]]] GetComments(System.Guid) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:53:21.525 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:53:21.554 +01:00 [INF] Executing SQL query for container 'Comments' in partition '?' [Parameters=[]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Comment") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+2026-04-05 14:53:24.876 +01:00 [INF] Executed ReadNext (3316.37 ms, 2.79 RU) ActivityId='f4a02d78-d269-42a6-bc26-1303779bd2fe', Container='Comments', Partition='?', Parameters=[]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Comment") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+2026-04-05 14:53:24.886 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3356.9948ms.
+2026-04-05 14:53:24.892 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.CommentDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-05 14:53:24.898 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api) in 3374.6729ms
+2026-04-05 14:53:24.903 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api)'
+2026-04-05 14:53:24.906 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - 200 null application/json; charset=utf-8 3413.0283ms
+2026-04-05 14:53:40.586 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - null null
+2026-04-05 14:53:40.596 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:40.599 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - 204 null null 12.9772ms
+2026-04-05 14:53:40.612 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/login - application/json; charset=utf-8 60
+2026-04-05 14:53:40.622 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:40.626 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-04-05 14:53:40.630 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InstagramClone.Api.DTOs.LoginRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-04-05 14:53:40.638 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:53:40.644 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__email_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-04-05 14:53:41.105 +01:00 [INF] Executed ReadNext (454.8172 ms, 3.02 RU) ActivityId='027bcd12-a9c2-47d0-85d0-c465a325e550', Container='Users', Partition='?', Parameters=[@__email_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-04-05 14:53:41.409 +01:00 [INF] User logged in: pleasantyomi@gmail.com
+2026-04-05 14:53:41.413 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 770.0196ms.
+2026-04-05 14:53:41.419 +01:00 [INF] Executing OkObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-04-05 14:53:41.424 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) in 786.526ms
+2026-04-05 14:53:41.428 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-04-05 14:53:41.432 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/login - 200 null application/json; charset=utf-8 820.2224ms
+2026-04-05 14:53:42.011 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:53:42.022 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:42.025 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - 204 null null 14.0787ms
+2026-04-05 14:53:42.039 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - null null
+2026-04-05 14:53:42.049 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:42.053 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:53:42.057 +01:00 [INF] Route matched with {action = "GetFeed", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.PostDto]]] GetFeed(Int32, Int32) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:53:42.065 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:53:42.070 +01:00 [INF] Executing SQL query for container 'Posts' in partition '?' [Parameters=[@__p_0=?, @__p_1=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:53:42.996 +01:00 [INF] Executed ReadNext (918.4348 ms, 11.68 RU) ActivityId='null', Container='Posts', Partition='?', Parameters=[@__p_0=?, @__p_1=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-04-05 14:53:43.014 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[]]
+SELECT c["Id"], c["Username"], c["AvatarUrl"]
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND c["Id"] IN ("98e643f1-37ec-470e-a960-1fa01c4d3c17"))
+2026-04-05 14:53:43.447 +01:00 [INF] Executed ReadNext (425.6086 ms, 2.92 RU) ActivityId='5260eb82-6316-4eab-8c4e-998068e2f81e', Container='Users', Partition='?', Parameters=[]
+SELECT c["Id"], c["Username"], c["AvatarUrl"]
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND c["Id"] IN ("98e643f1-37ec-470e-a960-1fa01c4d3c17"))
+2026-04-05 14:53:43.458 +01:00 [INF] Executing SQL query for container 'Likes' in partition '?' [Parameters=[@__currentUserId_Value_0=?]]
+SELECT c["PostId"]
+FROM root c
+WHERE ((c["Discriminator"] = "Like") AND ((c["UserId"] = @__currentUserId_Value_0) AND c["PostId"] IN ("ce3de231-fb59-45bc-9f6a-12213639e6fd")))
+2026-04-05 14:53:45.053 +01:00 [INF] Executed ReadNext (1588.9429 ms, 2.79 RU) ActivityId='e858fbee-2e79-4021-a4bb-9df253df14d6', Container='Likes', Partition='?', Parameters=[@__currentUserId_Value_0=?]
+SELECT c["PostId"]
+FROM root c
+WHERE ((c["Discriminator"] = "Like") AND ((c["UserId"] = @__currentUserId_Value_0) AND c["PostId"] IN ("ce3de231-fb59-45bc-9f6a-12213639e6fd")))
+2026-04-05 14:53:45.064 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2994.6418ms.
+2026-04-05 14:53:45.069 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.PostDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-05 14:53:45.113 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) in 3048.5449ms
+2026-04-05 14:53:45.118 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-04-05 14:53:45.122 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 200 null application/json; charset=utf-8 3082.5564ms
+2026-04-05 14:53:46.583 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - null null
+2026-04-05 14:53:46.593 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:46.597 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - 204 null null 13.1695ms
+2026-04-05 14:53:46.608 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - null null
+2026-04-05 14:53:46.617 +01:00 [INF] CORS policy execution successful.
+2026-04-05 14:53:46.621 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api)'
+2026-04-05 14:53:46.625 +01:00 [INF] Route matched with {action = "GetComments", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.CommentDto]]] GetComments(System.Guid) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-04-05 14:53:46.633 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api) - Validation state: "Valid"
+2026-04-05 14:53:46.638 +01:00 [INF] Executing SQL query for container 'Comments' in partition '?' [Parameters=[]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Comment") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+2026-04-05 14:53:48.391 +01:00 [INF] Executed ReadNext (1747.3287 ms, 2.79 RU) ActivityId='428d7835-0294-4280-bdaa-dbeeb3c893a3', Container='Comments', Partition='?', Parameters=[]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Comment") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+2026-04-05 14:53:48.401 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1764.1362ms.
+2026-04-05 14:53:48.407 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.CommentDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-05 14:53:48.411 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api) in 1779.331ms
+2026-04-05 14:53:48.416 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetComments (InstagramClone.Api)'
+2026-04-05 14:53:48.420 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/ce3de231-fb59-45bc-9f6a-12213639e6fd/comments - 200 null application/json; charset=utf-8 1811.4796ms

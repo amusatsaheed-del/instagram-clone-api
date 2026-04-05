@@ -15,10 +15,21 @@ builder.Host.UseSerilog((context, services, configuration) =>
         .MinimumLevel.Information());
 
 // ===== Database Configuration =====
+var accountEndpoint = builder.Configuration["Database:Cosmos:AccountEndpoint"];
+var accountKey = builder.Configuration["Database:Cosmos:AccountKey"];
+var databaseName = builder.Configuration["Database:Cosmos:DatabaseName"];
+
+if (string.IsNullOrWhiteSpace(accountEndpoint) ||
+    string.IsNullOrWhiteSpace(accountKey) ||
+    string.IsNullOrWhiteSpace(databaseName))
+{
+    throw new InvalidOperationException("Cosmos DB configuration is missing. Set Database:Cosmos:AccountEndpoint, Database:Cosmos:AccountKey, and Database:Cosmos:DatabaseName.");
+}
+
 builder.Services.AddDbContext<InstagramContext>(options =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-    options.UseSqlite(connectionString);
+    options.EnableDetailedErrors(builder.Environment.IsDevelopment());
+    options.UseCosmos(accountEndpoint, accountKey, databaseName);
 });
 
 // ===== Authentication & Authorization =====
@@ -113,12 +124,12 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var db = scope.ServiceProvider.GetRequiredService<InstagramContext>();
-        db.Database.Migrate();
-        app.Logger.LogInformation("✅ Database migration completed successfully");
+        await db.Database.EnsureCreatedAsync();
+        app.Logger.LogInformation("Document database initialized successfully using provider {provider}", db.Database.ProviderName);
     }
     catch (Exception ex)
     {
-        app.Logger.LogError($"❌ Database migration failed: {ex.Message}");
+        app.Logger.LogError(ex, "Database initialization failed");
     }
 }
 
@@ -143,5 +154,5 @@ app.UseAuthorization();
 app.MapHealthChecks("/health");
 app.MapControllers();
 
-app.Logger.LogInformation("🚀 Application starting on {timestamp}", DateTime.UtcNow);
+app.Logger.LogInformation("Application starting on {timestamp} with database provider cosmos", DateTime.UtcNow);
 await app.RunAsync();

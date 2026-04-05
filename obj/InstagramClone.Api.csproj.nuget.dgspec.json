@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {}
+    "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {}
   },
   "projects": {
-    "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {
+    "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
         "projectName": "InstagramClone.Api",
-        "projectPath": "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -66,17 +66,13 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.EntityFrameworkCore.Cosmos": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.0, )"
             },
