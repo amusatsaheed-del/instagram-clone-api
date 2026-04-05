@@ -38,13 +38,23 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: build
-    
+    permissions:
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
       
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D0594489BBC34DF2A7CB14A7C2D4FB6B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_ACE1359A3525468F934F4B8AE7612575 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_81E1DA26A48A4EC9B76C0308754AA040 }}
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -52,4 +62,4 @@ jobs:
           app-name: 'instagramcloneapi'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E996699AF9624E868BD8A572B807B665 }}
+          
