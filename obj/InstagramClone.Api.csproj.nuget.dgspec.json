@@ -1,22 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {}
+    "C:\\Users\\USER\\Desktop\\instagram-clone-api\\InstagramClone.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj": {
+    "C:\\Users\\USER\\Desktop\\instagram-clone-api\\InstagramClone.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\instagram-clone-api\\InstagramClone.Api.csproj",
         "projectName": "InstagramClone.Api",
-        "projectPath": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\InstagramClone.Api.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\instagram-clone-api\\InstagramClone.Api.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\Projects\\Assignment\\InstagramClone.Api\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\instagram-clone-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
-        "originalTargetFrameworks": ["net8.0"],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -28,7 +30,9 @@
           }
         },
         "warningProperties": {
-          "warnAsError": ["NU1605"]
+          "warnAsError": [
+            "NU1605"
+          ]
         },
         "restoreAuditProperties": {
           "enableAudit": "true",

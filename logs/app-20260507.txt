@@ -1,0 +1,125 @@
+2026-05-07 00:38:10.287 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-05-07 00:38:10.496 +01:00 [INF] Application starting on "2026-05-06T23:38:10.4964318Z" with database provider cosmos
+2026-05-07 00:38:10.536 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-07 00:38:10.996 +01:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5167: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-05-07 00:39:27.502 +01:00 [INF] Document database initialized successfully using provider Microsoft.EntityFrameworkCore.Cosmos
+2026-05-07 00:39:27.709 +01:00 [INF] Application starting on "2026-05-06T23:39:27.7091315Z" with database provider cosmos
+2026-05-07 00:39:27.743 +01:00 [INF] User profile is available. Using 'C:\Users\USER\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-07 00:39:28.266 +01:00 [INF] Now listening on: http://localhost:5167
+2026-05-07 00:39:28.269 +01:00 [INF] Now listening on: https://localhost:7167
+2026-05-07 00:39:28.271 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-07 00:39:28.273 +01:00 [INF] Hosting environment: Development
+2026-05-07 00:39:28.276 +01:00 [INF] Content root path: C:\Users\USER\Desktop\instagram-clone-api
+2026-05-07 00:42:07.767 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - null null
+2026-05-07 00:42:07.831 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:07.842 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - 204 null null 78.664ms
+2026-05-07 00:42:07.881 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - null null
+2026-05-07 00:42:07.895 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:08.013 +01:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '4/6/2026 1:53:41 PM', Current time (UTC): '5/6/2026 11:42:08 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-05-07 00:42:08.053 +01:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '4/6/2026 1:53:41 PM', Current time (UTC): '5/6/2026 11:42:08 PM'.
+2026-05-07 00:42:08.066 +01:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-07 00:42:08.076 +01:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-07 00:42:08.080 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 401 0 null 199.4114ms
+2026-05-07 00:42:15.671 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - null null
+2026-05-07 00:42:15.679 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:15.681 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - 204 null null 9.9195ms
+2026-05-07 00:42:15.690 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/login - application/json; charset=utf-8 60
+2026-05-07 00:42:15.696 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:15.706 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-05-07 00:42:15.742 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InstagramClone.Api.DTOs.LoginRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 00:42:15.804 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 00:42:16.128 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__email_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-05-07 00:42:19.460 +01:00 [INF] Executed ReadNext (3307.9497 ms, 2.89 RU) ActivityId='52a1938a-8f9d-4c67-baa3-79adfaba67e3', Container='Users', Partition='?', Parameters=[@__email_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-05-07 00:42:19.484 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.UnauthorizedObjectResult in 3670.9613ms.
+2026-05-07 00:42:19.498 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 00:42:19.567 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) in 3815.16ms
+2026-05-07 00:42:19.571 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-05-07 00:42:19.580 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/login - 401 null application/json; charset=utf-8 3890.4637ms
+2026-05-07 00:42:35.514 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - null null
+2026-05-07 00:42:35.520 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:35.522 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/auth/login - 204 null null 8.4934ms
+2026-05-07 00:42:35.533 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/login - application/json; charset=utf-8 60
+2026-05-07 00:42:35.537 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:35.540 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-05-07 00:42:35.543 +01:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(InstagramClone.Api.DTOs.LoginRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 00:42:35.551 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 00:42:35.619 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__email_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-05-07 00:42:35.849 +01:00 [INF] Executed ReadNext (224.3442 ms, 3.02 RU) ActivityId='5cb8840a-65c3-4782-88cd-b95c1f48b8a2', Container='Users', Partition='?', Parameters=[@__email_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND ((c["Email"] = @__email_0) AND c["IsActive"]))
+OFFSET 0 LIMIT 1
+2026-05-07 00:42:36.718 +01:00 [INF] User logged in: saheed@gmail.com
+2026-05-07 00:42:36.721 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1167.0118ms.
+2026-05-07 00:42:36.726 +01:00 [INF] Executing OkObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 00:42:36.737 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api) in 1190.4226ms
+2026-05-07 00:42:36.756 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.Login (InstagramClone.Api)'
+2026-05-07 00:42:36.766 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/login - 200 null application/json; charset=utf-8 1233.1485ms
+2026-05-07 00:42:36.990 +01:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - null null
+2026-05-07 00:42:36.997 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:36.999 +01:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5167/api/posts/feed?page=1 - 204 null null 8.4454ms
+2026-05-07 00:42:37.006 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - null null
+2026-05-07 00:42:37.012 +01:00 [INF] CORS policy execution successful.
+2026-05-07 00:42:37.030 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-05-07 00:42:37.041 +01:00 [INF] Route matched with {action = "GetFeed", controller = "Posts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[InstagramClone.Api.DTOs.PostDto]]] GetFeed(Int32, Int32) on controller InstagramClone.Api.Controllers.PostsController (InstagramClone.Api).
+2026-05-07 00:42:37.052 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 00:42:37.102 +01:00 [INF] Executing SQL query for container 'Posts' in partition '?' [Parameters=[@__p_0=?, @__p_1=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-05-07 00:42:39.346 +01:00 [INF] Executed ReadNext (2238.9869 ms, 2.79 RU) ActivityId='72a7ca38-39a3-41ae-941d-fa52c3a52444', Container='Posts', Partition='?', Parameters=[@__p_0=?, @__p_1=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "Post") AND c["IsActive"])
+ORDER BY c["CreatedAt"] DESC
+OFFSET @__p_0 LIMIT @__p_1
+2026-05-07 00:42:39.362 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2306.5895ms.
+2026-05-07 00:42:39.366 +01:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[InstagramClone.Api.DTOs.PostDto, InstagramClone.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-07 00:42:39.391 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) in 2345.073ms
+2026-05-07 00:42:39.394 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
+2026-05-07 00:42:39.398 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 200 null application/json; charset=utf-8 2391.8479ms
