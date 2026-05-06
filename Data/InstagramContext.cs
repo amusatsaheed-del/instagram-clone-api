@@ -55,8 +55,6 @@ public class InstagramContext : DbContext
 
     private static void ConfigureCosmosModel(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasManualThroughput(400);
-
         modelBuilder.Entity<User>(entity =>
         {
             entity.ToContainer("Users");
