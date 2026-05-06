@@ -97,10 +97,21 @@ builder.Services.AddSwaggerGen(options =>
 // ===== CORS Configuration =====
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+
+    options.AddPolicy("FrontendCors", policy =>
     {
+        if (allowedOrigins.Length == 0)
+        {
+            policy
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            return;
+        }
+
         policy
-            .AllowAnyOrigin()
+            .WithOrigins(allowedOrigins)
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
@@ -146,7 +157,7 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseResponseCompression();
 
-app.UseCors("AllowAll");
+app.UseCors("FrontendCors");
 
 app.UseAuthentication();
 app.UseAuthorization();
