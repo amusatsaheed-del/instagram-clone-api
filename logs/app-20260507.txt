@@ -123,3 +123,133 @@ OFFSET @__p_0 LIMIT @__p_1
 2026-05-07 00:42:39.391 +01:00 [INF] Executed action InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api) in 2345.073ms
 2026-05-07 00:42:39.394 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.PostsController.GetFeed (InstagramClone.Api)'
 2026-05-07 00:42:39.398 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5167/api/posts/feed?page=1 - 200 null application/json; charset=utf-8 2391.8479ms
+2026-05-07 01:37:23.719 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 86
+2026-05-07 01:37:23.725 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:37:23.733 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 01:37:23.743 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 01:37:23.762 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:37:24.719 +01:00 [INF] Executed ReadNext (953.4938 ms, 2.92 RU) ActivityId='3df24f4a-1585-4e15-b6d6-febc7000e64a', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:37:24.732 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 987.0443ms.
+2026-05-07 01:37:24.735 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 01:37:24.737 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 1001.4273ms
+2026-05-07 01:37:24.738 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:37:24.740 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 400 null application/json; charset=utf-8 1020.5733ms
+2026-05-07 01:43:58.835 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 80
+2026-05-07 01:43:58.839 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:43:58.841 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 01:43:58.843 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 01:43:58.845 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.UnauthorizedObjectResult in 0.1718ms.
+2026-05-07 01:43:58.847 +01:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 01:43:58.849 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 6.5559ms
+2026-05-07 01:43:58.852 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:43:58.854 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 401 null application/json; charset=utf-8 19.1068ms
+2026-05-07 01:45:13.314 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 130
+2026-05-07 01:45:13.321 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:45:13.323 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 01:45:13.330 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 01:45:13.334 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:45:13.525 +01:00 [INF] Executed ReadNext (186.9075 ms, 2.89 RU) ActivityId='1cc23a7f-aa73-4dc8-ab47-eb4dd98bc0bd', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:45:13.548 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedUsername_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:45:14.491 +01:00 [INF] Executed ReadNext (938.5354 ms, 2.89 RU) ActivityId='da25f112-249e-4bdc-b8f8-4f643f289c8d', Container='Users', Partition='?', Parameters=[@__normalizedUsername_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:45:15.041 +01:00 [INF] Executed CreateItem (176.7632 ms, 9.33 RU) ActivityId='54305af5-a710-40f3-9d3d-ecf941070d4b', Container='Users', Id='?', Partition='?'
+2026-05-07 01:45:15.061 +01:00 [INF] User registered: creator20260507014513@example.com
+2026-05-07 01:45:15.064 +01:00 [INF] Internal creator account created for creator20260507014513@example.com
+2026-05-07 01:45:15.066 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 1733.3391ms.
+2026-05-07 01:45:15.070 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 01:45:15.099 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 1771.9155ms
+2026-05-07 01:45:15.102 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:45:15.105 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 201 null application/json; charset=utf-8 1790.6505ms
+2026-05-07 01:47:11.104 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 80
+2026-05-07 01:47:11.107 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:47:11.108 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 01:47:11.112 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 01:47:11.114 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:47:11.313 +01:00 [INF] Executed ReadNext (196.1416 ms, 2.92 RU) ActivityId='a646b099-0ade-49c1-a6dd-592113cc8dba', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:47:11.317 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 203.5808ms.
+2026-05-07 01:47:11.319 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 01:47:11.320 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 209.4863ms
+2026-05-07 01:47:11.322 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:47:11.323 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 400 null application/json; charset=utf-8 219.493ms
+2026-05-07 01:47:41.297 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 80
+2026-05-07 01:47:41.303 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:47:41.305 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 01:47:41.309 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 01:47:41.313 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:47:41.500 +01:00 [INF] Executed ReadNext (183.4048 ms, 2.92 RU) ActivityId='6b2332d8-fcce-4141-8ce1-8a3adace0afb', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:47:41.505 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 193.0466ms.
+2026-05-07 01:47:41.508 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 01:47:41.511 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 202.7656ms
+2026-05-07 01:47:41.514 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:47:41.516 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 400 null application/json; charset=utf-8 218.1957ms
+2026-05-07 01:49:33.720 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - application/json 84
+2026-05-07 01:49:33.724 +01:00 [INF] Executing endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:49:33.726 +01:00 [INF] Route matched with {action = "CreateCreator", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCreator(InstagramClone.Api.DTOs.RegisterRequest) on controller InstagramClone.Api.Controllers.AuthController (InstagramClone.Api).
+2026-05-07 01:49:33.729 +01:00 [INF] Executing action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) - Validation state: "Valid"
+2026-05-07 01:49:33.731 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedEmail_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:49:33.926 +01:00 [INF] Executed ReadNext (193.448 ms, 2.89 RU) ActivityId='a10eafaa-2898-4a97-859f-68fb5f4be43d', Container='Users', Partition='?', Parameters=[@__normalizedEmail_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Email"] = @__normalizedEmail_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:49:33.930 +01:00 [INF] Executing SQL query for container 'Users' in partition '?' [Parameters=[@__normalizedUsername_0=?]]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:49:34.880 +01:00 [INF] Executed ReadNext (947.7733 ms, 2.89 RU) ActivityId='9d8a1cd9-cfe2-4bce-98e5-f77b012eea9e', Container='Users', Partition='?', Parameters=[@__normalizedUsername_0=?]
+SELECT c
+FROM root c
+WHERE ((c["Discriminator"] = "User") AND (c["Username"] = @__normalizedUsername_0))
+OFFSET 0 LIMIT 1
+2026-05-07 01:49:35.309 +01:00 [INF] Executed CreateItem (174.7815 ms, 9.33 RU) ActivityId='fd85b401-2e7a-4682-95dd-ea1e8349a819', Container='Users', Id='?', Partition='?'
+2026-05-07 01:49:35.313 +01:00 [INF] User registered: saheed01@gmail.com
+2026-05-07 01:49:35.314 +01:00 [INF] Internal creator account created for saheed01@gmail.com
+2026-05-07 01:49:35.315 +01:00 [INF] Executed action method InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api), returned result Microsoft.AspNetCore.Mvc.CreatedAtActionResult in 1585.4231ms.
+2026-05-07 01:49:35.317 +01:00 [INF] Executing CreatedAtActionResult, writing value of type 'InstagramClone.Api.DTOs.AuthResponse'.
+2026-05-07 01:49:35.319 +01:00 [INF] Executed action InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api) in 1591.6399ms
+2026-05-07 01:49:35.322 +01:00 [INF] Executed endpoint 'InstagramClone.Api.Controllers.AuthController.CreateCreator (InstagramClone.Api)'
+2026-05-07 01:49:35.323 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5167/api/auth/internal/create-creator - 201 null application/json; charset=utf-8 1603.6638ms
